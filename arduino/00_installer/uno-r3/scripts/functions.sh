@@ -48,10 +48,23 @@ done
 
 ## -------------------------------------------------------------------------------
 
+function uninstall_existing_components() {
+    bar
+    echo -e "\n \e[1m\e[31mUninstalling previous Installations...\e[0m\n"
+    rm -rf .temp > /dev/null 2>&1
+    sh ~/.ArduinoIDE/uninstall.sh > /dev/null 2>&1
+    rm -rf ~/.ArduinoIDE > /dev/null 2>&1
+    rm -rf ~/.arduino* > /dev/null 2>&1
+    rm -rf ~/Arduino/libraries > /dev/null 2>&1
+    echo -e " -- DONE!\n"
+}
+
+## -------------------------------------------------------------------------------
+
 function install_prerequisites() {
   bar
   echo -e "\n \e[1m\e[31mInstalling required System Packages...\e[0m\n"
-  sudo apt update -qq -y && sudo apt install wget -y -qq
+  sudo apt update -qqq -y && sudo apt install wget -y -qqq
   echo -e "\n -- DONE!\n"
 }
 
@@ -89,11 +102,10 @@ function extract_arduino_ide() {
   bar
   echo -e "\n \e[1m\e[31mExtracting Arduino IDE v${arduino_ide_version} Installation Files...\e[0m\n"
   cd .temp
-  rm -rf ~/Arduino
-  mkdir ~/Arduino
+  mkdir ~/.ArduinoIDE
   FILE=$url
   FILE=$(basename "$FILE")
-  tar -xf $FILE -C ~/Arduino --strip-components=1
+  tar -xf $FILE -C ~/.ArduinoIDE --strip-components=1
   cd ..
   echo -e " -- DONE!\n"
 }
@@ -104,7 +116,7 @@ function install_arduino_ide() {
   bar
   sudo adduser $USER dialout > /dev/null 2>&1
   echo -e "\n \e[1m\e[31mInstalling Arduino IDE v${arduino_ide_version}...\e[0m\n"
-  ~/Arduino/install.sh > /dev/null 2>&1
+  sh ~/.ArduinoIDE/install.sh > /dev/null 2>&1
   echo -e " -- DONE!\n"
 }
 
@@ -116,7 +128,7 @@ clean_up() {
   rm -rf .temp
   echo -e " -- DONE!\n"
   bar
-  echo -e "\n \e[1m\e[32mHave fun with your Arduino! :)\e[0m\n"
+  echo -e "\n \e[1m\e[32mHave fun with your Arduino UNO R3! :)\e[0m\n"
 }
 
 ## -------------------------------------------------------------------------------
@@ -155,13 +167,34 @@ function install_arduino_cli() {
 
 ## -------------------------------------------------------------------------------
 
+function install_board() {
+ bar
+ echo -e "\n \e[1m\e[31mInstalling Core for Arduino UNO R3...\e[0m\n"
+ arduino-cli core install arduino:avr
+ echo -e "\n -- DONE!\n"
+}
+
+## -------------------------------------------------------------------------------
+
 function install_libraries() {
   bar
   echo -e "\n \e[1m\e[31mInstalling Libraries...\e[0m\n"
-  #arduino-cli lib install Arduino_TensorFlowLite@2.4.0-ALPHA
-  #arduino-cli lib install Harvard_TinyMLx@1.0.1-Alpha
-  #arduino-cli lib install Arduino_LSM9DS1@1.1.0
-  #arduino-cli lib install ArduinoBLE@1.1.3
+  arduino-cli lib install EloquentArduino@1.1.8
   echo -e "\n -- DONE!\n"
 }
 
+## -------------------------------------------------------------------------------
+
+function connect_and_test_board() {
+ bar
+ echo -e "\n \e[1m\e[31mConnecting an Testing Arduino UNO R3...\e[0m\n"
+ boardpath=$(arduino-cli board list | grep arduino:avr:uno | cut -d' ' -f1)
+ echo -e " \e[1mAttaching Board\e[0m\n ---------------"
+ arduino-cli board attach ${boardpath} ~/.ArduinoIDE/examples/01.Basics/Blink/Blink.ino
+ echo -e "\n \e[1mCompiling LED Blink test\e[0m\n ------------------------"
+ arduino-cli compile ~/.ArduinoIDE/examples/01.Basics/Blink/Blink.ino
+ echo -e " \e[1mUploading LED Blink test to Arduino\e[0m\n -----------------------------------"
+ arduino-cli upload --verify ~/.ArduinoIDE/examples/01.Basics/Blink/Blink.ino
+ echo -e "\n   \e[1m\e[5m  If your Arduino's LED is blinking, the test was successful !\e[0m"
+ echo -e "\n -- DONE!\n"
+}

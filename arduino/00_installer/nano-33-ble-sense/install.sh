@@ -1,13 +1,17 @@
 #!/bin/bash
 
+## --- Importing Functions and Parameters ---
+
 source ./scripts/parameters.sh
 source ./scripts/functions.sh
 
-## ---------- Start of actual Script ----------
+## ---------- Start of Main Script ----------
 
 show_script_header
 
 check_connections
+
+uninstall_existing_components
 
 install_prerequisites
 
@@ -23,11 +27,11 @@ download_arduino_cli
 
 install_arduino_cli
 
+install_board
+
 install_libraries
 
+connect_and_test_board
+
 clean_up
-
-
-
-
 

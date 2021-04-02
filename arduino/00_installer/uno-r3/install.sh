@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## --- Importing Functions and Parameters ---
+
 source ./scripts/parameters.sh
 source ./scripts/functions.sh
 
@@ -8,6 +10,8 @@ source ./scripts/functions.sh
 show_script_header
 
 check_connections
+
+uninstall_existing_components
 
 install_prerequisites
 
@@ -27,9 +31,7 @@ install_board
 
 install_libraries
 
+connect_and_test_board
+
 clean_up
-
-
-
-
 
