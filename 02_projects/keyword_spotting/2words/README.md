@@ -31,23 +31,23 @@ Roughly summarized the notebook contains the following steps:
 
 
 ## **Arduino IDE Part (deploying the model)**
-To be able to try out the model without having to follow the manual steps explained in this section, you can deploy the model directly to your Arduino by using my deployment script (<span style="color:red">**TODO: LINK**</span>): URL to Script). This script will only work if you also used my [Arduino Nano 33 BLE Sense install script](https://github.com/KlausPuchner/TinyML/tree/main/00_arduino_installer/nano-33-ble-sense). You can start the script in your terminal simply starting it with `bash deploy.sh`.
+To be able to try out the model without having to follow the manual steps explained in this section, you can deploy the model directly to your Arduino by using my deployment script. This script will only work if you also used my [Arduino Nano 33 BLE Sense install script](https://github.com/KlausPuchner/TinyML/tree/main/00_arduino_installer/nano-33-ble-sense). You can start the script in your terminal simply starting it with `bash deploy.sh`.
 
 ### **Step 1**
 In the Arduino IDE, open *File → Examples → Harvard_TinyMLx → micro_speech* look for and open the **micro_features_model.cpp** file.
 Two things need to be done here:
 
-1. Copy the column with the hex values from the downloaded or printed model from the previous step into the **micro_features_model.cpp** file and overwrite the existing hex values (**Attention:** only copy the hex data inside the curved brackets {}!!!).
+1. Copy the column with the hex values from the downloaded or printed model from the previous step into the **micro_features_model.cpp** file and overwrite the existing hex values (**Attention:** only copy the hex data inside the curved brackets {} !!!).
 
-2. Again from the previously downloaded or printed model copy the number behind *g_model_len* into **micro_features_model.cpp** and overwrite the existing number
+2. Again from the previously downloaded or printed model copy the number behind *`g_model_len`* into **micro_features_model.cpp** and overwrite the existing number
 
 3. Save the changes into a folder of your choice.
 
 ### **Step 2**
-Open the **micro_features_micro_model_settings.h** file and locate the **kCategoryCount** value (make sure it states *constexpr int kCategoryCount = 4;*). If you find another number, please replace it with the number 4. Why does it have to be four? The micro_speech model has to basic classes ("silence" and "unknown") while additional keywords have to be added (in our case "stop" and "go"), which leads to an overall category count of 2 + 2 = 4. Save changes.
+Open the **micro_features_micro_model_settings.h** file and locate the `CategoryCount` value (make sure it states *constexpr int kCategoryCount = 4;*). If you find another number, please replace it with the number 4. Why does it have to be four? The micro_speech model has to basic classes ("silence" and "unknown") while additional keywords have to be added (in our case "stop" and "go"), which leads to an overall category count of 2 + 2 = 4. Save changes.
 
 ### **Step 3**
-Open the **micro_features_micro_model_settings.cpp** file and locate the **const char* kCategoryLabels[kCategoryCount]** array statement. Replace *"yes"* with *"stop"* and *"no"* with *"go"*. Save changes.
+Open the **micro_features_micro_model_settings.cpp** file and locate the `const char* kCategoryLabels[kCategoryCount]` array statement. Replace *"yes"* with *"stop"* and *"no"* with *"go"*. Save changes.
 
 ### **Step 4**
 Open the **arduino_command_responder.cpp** file, **locate** and **replace**...
