@@ -52,8 +52,8 @@ Open the **micro_features_micro_model_settings.cpp** file and locate the `const 
 ### **Step 4**
 Open the **arduino_command_responder.cpp** file, **locate** and **replace**...
 
-1. ...the ***if (found_command[0] == 'y')*** with ***if (found_command[0] == 'g')***
-2. ...the ***if (found_command[0] == 'n')*** with ***if (found_command[0] == 's')***
+1. ...**replace** the `if (found_command[0] == 'y')` with if `(found_command[0] == 'g')`
+2. ...**replace** the `if (found_command[0] == 'n')` with if `(found_command[0] == 's')`
 
 Save changes.
 
