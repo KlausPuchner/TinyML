@@ -12,7 +12,7 @@ For this project, we do not use Google Colab. We use a locally deployed, dockeri
     - Installed Arduino Nano 33 BLE Sense Board
     - Installed Arduino IDE
     - Installed Library (Harvard_TinyMLx)
-- **Docker Installation** (can be installed manually or via Script, see xxx)
+- **Docker Installation** (can be installed manually or via my [DockerLauncher tool](https://github.com/KlausPuchner/DockerLauncher.git))
     - Installed Docker
     - Installed Nvidia Container Toolkit
     - Nvidia GPU Driver Installation (optional - for faster training)
