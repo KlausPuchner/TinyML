@@ -7,7 +7,7 @@ For this project, we do not use Google Colab. We use a locally deployed, dockeri
 
 - **Equipment**
     - A computer with Ubuntu 20.04 installed (an Nvdia GPU is recommenced but not necessary)
-    - The Arduino Tiny Machine Learning Kit (https://store.arduino.cc/tiny-machine-learning-kit  - **Affiliate Link?**)
+    - The Arduino Tiny Machine Learning Kit (https://store.arduino.cc/tiny-machine-learning-kit )
 - **Arduino Installation** (can be installed manually or via Script, see xxxx)
     - Installed Arduino Nano 33 BLE Sense Board
     - Installed Arduino IDE
