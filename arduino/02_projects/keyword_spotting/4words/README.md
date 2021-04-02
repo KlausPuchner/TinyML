@@ -1,7 +1,7 @@
 # **Project: Deploying a keyword spotting model with four signal words**
 The scope in this project is to train and quantize a Tensorflow Lite Micro model and deploy it to the Arduino Nano 33 BLE Sense. The model should enable the Arduino to recognize and to respond to the four keywords "go" , "stop", "left", "right" by blinking a particular led (stop = red, go = green, left = white, right = yellow).
 
-For this project, we do not use Google Colab. We use a locally deployed, dockerized jupyter notebook with Tensorflow 1.15.5. You can either use my launcher tool (<span style="color:red">**TODO: LINK**</span>) for this or you can also install the prerequisites on your own.
+For this project, we do not use Google Colab. We use a locally deployed, dockerized jupyter notebook with Tensorflow 1.15.5. You can either use my [DockerLauncher tool](https://github.com/KlausPuchner/DockerLauncher.git) for this or you can also install the prerequisites on your own.
 
 ## **Prerequisites**
 
