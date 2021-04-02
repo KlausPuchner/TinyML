@@ -31,7 +31,7 @@ Roughly summarized the notebook contains the following steps:
 
 
 ## **Arduino IDE Part (deploying the model)**
-To be able to try out the model without having to follow the manual steps explained in this section, you can deploy the model directly to your Arduino by using my deployment script (<span style="color:red">**TODO: LINK**</span>): URL to Script). This script will only work if you also used my Arduino Nano 33 BLE Sense install script (<span style="color:red">**TODO: LINK**</span>): URL to Script). You can start the script in your terminal simply starting it with *"bash deploy.sh"*.
+To be able to try out the model without having to follow the manual steps explained in this section, you can deploy the model directly to your Arduino by using my deployment script (<span style="color:red">**TODO: LINK**</span>): URL to Script). This script will only work if you also used my [Arduino Nano 33 BLE Sense install script](https://github.com/KlausPuchner/TinyML/tree/main/00_arduino_installer/nano-33-ble-sense). You can start the script in your terminal simply starting it with *"bash deploy.sh"*.
 
 ### **Step 1**
 In the Arduino IDE, open *File → Examples → Harvard_TinyMLx → micro_speech* look for and open the **micro_features_model.cpp** file.
