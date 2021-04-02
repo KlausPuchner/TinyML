@@ -18,7 +18,7 @@ For this project, we do not use Google Colab. We use a locally deployed, dockeri
     - Nvidia GPU Driver Installation (optional - for faster training)
 
 ## **Jupyter Notebook Part (training the model)**
-The Jupyter notebook guides you through the process of training a KWS model. It is based on the Colabs which from Tensorflows micro_speech example as well as the HarvardX 3_5_18_TrainingKeywordSpotting.ipynb and 4_5_16_KWS_PretrainedModel from the TinyML Specialization on edX. To get started start a jupyter notebook with Tensorflow 1.15.5 installed and open the ipynb Notebook **TrainKeywordSpottingModel2words.ipynb** (<span style="color:red">**TODO: LINK**</span>).
+The Jupyter notebook guides you through the process of training a KWS model. It is based on the Colabs which from Tensorflows micro_speech example as well as the HarvardX 3_5_18_TrainingKeywordSpotting.ipynb and 4_5_16_KWS_PretrainedModel from the TinyML Specialization on edX. To get started start a jupyter notebook with Tensorflow 1.15.5 installed and open the ipynb Notebook [**TrainKeywordSpottingModel4words.ipynb**](https://github.com/KlausPuchner/TinyML/blob/main/02_projects/keyword_spotting/4words/TrainKeywordSpottingModel4words.ipynb).
 
 Roughly summarized the notebook contains the following steps:
 
