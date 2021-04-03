@@ -6,12 +6,12 @@ For this project, we do not use Google Colab. We use a locally deployed, dockeri
 ## **Prerequisites**
 
 - **Equipment**
-    - A computer with Ubuntu 20.04 installed (an Nvdia GPU is recommenced but not necessary)
+    - A computer with Ubuntu 20.04 installed (an Nvdia GPU is recommended but not necessary)
     - The Arduino Tiny Machine Learning Kit (https://store.arduino.cc/tiny-machine-learning-kit)
 - **Arduino Installation** (can be installed manually or via my [install script](https://github.com/KlausPuchner/TinyML/tree/main/00_arduino_installer/nano-33-ble-sense))
     - Installed Arduino Nano 33 BLE Sense Board
     - Installed Arduino IDE
-    - Installed Library (Harvard_TinyMLx)
+    - Installed Library (Harvard_TinyMLx, Tensorflow Lite Micro)
 - **Docker Installation** (can be installed manually or via my [DockerLauncher tool](https://github.com/KlausPuchner/DockerLauncher.git))
     - Installed Docker
     - Installed Nvidia Container Toolkit
