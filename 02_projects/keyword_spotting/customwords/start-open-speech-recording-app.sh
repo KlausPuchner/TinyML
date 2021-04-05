@@ -33,6 +33,7 @@ python3 -m pip install --upgrade --quiet --no-cache-dir pip flask
 
 ## --- Start Open-Speech-Recording App ---
 cd open-speech-recording
+git submodule update --init --recursive
 export FLASK_APP=main.py
 python3 -m flask run
 
