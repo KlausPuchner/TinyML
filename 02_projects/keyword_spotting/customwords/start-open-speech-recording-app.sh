@@ -36,6 +36,17 @@ cd open-speech-recording
 export FLASK_APP=main.py
 python3 -m flask run
 
+## --- Shorten filenames to function with Pete Warden's Tool ---
+for filename in *.ogg; do
+	[ -e "$filename" ] || continue
+		echo $filename
+		strarr=(${filename//_/ })
+		newname="${strarr[0]}_${strarr[2]}"
+		echo $newname
+		mv $filename $newname
+done
+
+
 ## --- Move Sound Files ---
 mkdir ~/dockervolume/audiofiles
 mv *.ogg ~/dockervolume/audiofiles
