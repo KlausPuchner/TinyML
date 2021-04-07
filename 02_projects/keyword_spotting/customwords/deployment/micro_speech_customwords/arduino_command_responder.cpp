@@ -54,12 +54,12 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
     if (found_command[0] == 'a') {
       last_command_time = current_time;
       digitalWrite(LEDG, LOW);  
-      digitalWrite(LEDG, HIGH);// Red for activate
+      digitalWrite(LEDG, HIGH);// Green for activate
     }
 
     if (found_command[0] == 'd') {
       last_command_time = current_time;
-      digitalWrite(LEDG, HIGH);  // No red LED for deactivate
+      digitalWrite(LEDG, HIGH);  // No green LED for deactivate
     }
 
     if (found_command[0] == 's') {
