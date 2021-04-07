@@ -54,7 +54,7 @@ Open the **arduino_command_responder.cpp** file, **locate** and ...
 
 1. ...**replace** the `if (found_command[0] == 'y')` with if `(found_command[0] == 'g')`
 2. ...**replace** the `if (found_command[0] == 'n')` with if `(found_command[0] == 's')`
-3. ...**add** two mor if statements including the brackets:
+3. ...**add** two more if statements including the brackets:
 
     `if (found_command[0] == 'l') {
       last_command_time = current_time;
