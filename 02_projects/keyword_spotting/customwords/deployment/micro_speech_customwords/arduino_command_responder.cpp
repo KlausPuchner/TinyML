@@ -53,23 +53,19 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
     // If we hear a command, light up the appropriate LED
     if (found_command[0] == 'a') {
       last_command_time = current_time;
-      digitalWrite(LEDG, LOW);// Green for activate
-
-      if (found_command[0] == 's') {
-        last_command_time = current_time;
-        digitalWrite(LEDR, LOW);
-        digitalWrite(LEDG, LOW);
-        digitalWrite(LEDB, LOW);  // White for snapshot
-        delay(1000);
-        digitalWrite(LEDR, HIGH);
-        digitalWrite(LEDG, HIGH);
-        digitalWrite(LEDB, HIGH);
-      }
+      digitalWrite(LEDG, LOW);// Green for activate      
     }
 
     if (found_command[0] == 'd') {
       last_command_time = current_time;
-      digitalWrite(LEDG, HIGH);  // No green LED for deactivate
+      digitalWrite(LEDR, LOW);  // Red for deactivate
+    }
+
+    if (found_command[0] == 's') {
+      last_command_time = current_time;
+      digitalWrite(LEDR, LOW);
+      digitalWrite(LEDG, LOW);
+      digitalWrite(LEDB, LOW);
     }
 
   }
@@ -80,9 +76,9 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
     if (last_command_time < (current_time - 3000)) {
       last_command_time = 0;
       digitalWrite(LED_BUILTIN, LOW);
-      //digitalWrite(LEDR, HIGH);
-      //digitalWrite(LEDG, HIGH);
-      //digitalWrite(LEDB, HIGH);
+      digitalWrite(LEDR, HIGH);
+      digitalWrite(LEDG, HIGH);
+      digitalWrite(LEDB, HIGH);
     }
     // If it is non-zero but <3 seconds ago, do nothing.
     return;
@@ -90,11 +86,11 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
 
   // Otherwise, toggle the LED every time an inference is performed.
   ++count;
-  //if (count & 1) {
-  //  digitalWrite(LED_BUILTIN, HIGH);
-  //} else {
-  //  digitalWrite(LED_BUILTIN, LOW);
-  //}
+  if (count & 1) {
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
 }
 
 #endif  // ARDUINO_EXCLUDE_CODE
