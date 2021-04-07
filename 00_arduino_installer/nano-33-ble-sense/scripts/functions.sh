@@ -172,6 +172,7 @@ function set_permissions() {
  echo -e "\n \e[1m\e[31mSet Terminal Connection Permissions...\e[0m\n"
  sudo usermod -aG dialout $USER
  su -c 'exit' ${USER}
+ sudo chmod a+rw /dev/ttyACM0
  echo -e " -- DONE!\n"
 }
 
