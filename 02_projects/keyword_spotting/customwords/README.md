@@ -52,21 +52,29 @@ Open the **micro_features_micro_model_settings.cpp** file and locate the `const 
 ### **Step 4**
 Open the **arduino_command_responder.cpp** file, **locate** and ...
 
-1. ...**replace** the `if (found_command[0] == 'y')` with if `(found_command[0] == 'a')`
-2. ...**replace** the `if (found_command[0] == 'n')` with if `(found_command[0] == 'd')`
-3. ...**add** two mor if statements including the brackets:
+1. ...**replace** all `if (found_command[0] == '...')` with the following new if statements:
 
-    `if (found_command[0] == 'l') {
+    `if (found_command[0] == 'a') {
+      last_command_time = current_time;
+      digitalWrite(LEDG, LOW);
+      delay(1000)
+      digitalWrite(LEDG, HIGH);// Green for activate
+    }
+
+    if (found_command[0] == 'd') {
+      last_command_time = current_time;
+      digitalWrite(LEDG, HIGH);  // No green LED for deactivate
+    }
+
+    if (found_command[0] == 's') {
       last_command_time = current_time;
       digitalWrite(LEDR, LOW);
       digitalWrite(LEDG, LOW);
-      digitalWrite(LEDB, LOW);  // White for no
-    }`
-
-    `if (found_command[0] == 'r') {
-      last_command_time = current_time;
-      digitalWrite(LEDG, LOW);
-      digitalWrite(LEDR, LOW);  // Yellow for no
+      digitalWrite(LEDB, LOW);  // White for snapshot
+      delay(1000);
+      digitalWrite(LEDR, HIGH);
+      digitalWrite(LEDG, HIGH);
+      digitalWrite(LEDB, HIGH);
     }`
 
 Save changes.
