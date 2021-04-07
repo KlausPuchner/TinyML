@@ -27,6 +27,8 @@ download_arduino_cli
 
 install_arduino_cli
 
+set_permissions
+
 install_board
 
 install_libraries

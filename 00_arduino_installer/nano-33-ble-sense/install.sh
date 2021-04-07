@@ -25,6 +25,8 @@ install_arduino_ide
 
 download_arduino_cli
 
+set_permissions
+
 install_arduino_cli
 
 install_board

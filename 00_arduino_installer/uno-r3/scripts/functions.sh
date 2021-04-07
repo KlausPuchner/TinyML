@@ -167,6 +167,16 @@ function install_arduino_cli() {
 
 ## -------------------------------------------------------------------------------
 
+function set_permissions() {
+ bar
+ echo -e "\n \e[1m\e[31mSet Terminal Connection Permissions...\e[0m\n"
+ sudo usermod -aG dialout $USER
+ su -c 'exit' ${USER}
+ echo -e " -- DONE!\n"
+}
+
+## -------------------------------------------------------------------------------
+
 function install_board() {
  bar
  echo -e "\n \e[1m\e[31mInstalling Core for Arduino UNO R3...\e[0m\n"
