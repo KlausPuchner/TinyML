@@ -55,29 +55,16 @@ wrap_up() {
 
 ## -------------------------------------------------------------------------------
 
-function install_libraries() {
- bar
- echo -e "\n \e[1m\e[31mInstalling Libraries...\e[0m\n"
- arduino-cli lib install Arduino_TensorFlowLite@2.4.0-ALPHA
- arduino-cli lib install Harvard_TinyMLx@1.0.1-Alpha
- arduino-cli lib install Arduino_LSM9DS1@1.1.0
- arduino-cli lib install ArduinoBLE@1.1.3
- arduino-cli lib install EloquentArduino@1.1.8
- echo -e "\n -- DONE!\n"
-}
-
-## -------------------------------------------------------------------------------
-
 function connect_board_and_deploy_script() {
  bar
  echo -e "\n \e[1m\e[31mConnecting Arduino Nano 33 BLE Sense and deploying model...\e[0m\n"
  boardpath=$(arduino-cli board list | grep arduino:mbed:nano33ble | cut -d' ' -f1)
  echo -e " \e[1mAttaching Board\e[0m\n ---------------"
- arduino-cli board attach ${boardpath} ./deployment/micro_speech_4words/micro_speech_4words.ino
+ arduino-cli board attach ${boardpath} ./deployment/${sketchfolder}/${sketchname}.ino
  echo -e "\n \e[1mCompiling Model\e[0m\n ------------------------"
- arduino-cli compile ./deployment/micro_speech_4words/micro_speech_4words.ino
+ arduino-cli compile ./deployment/${sketchfolder}/${sketchname}.ino
  echo -e " \e[1mUploading Model to Arduino\e[0m\n -----------------------------------"
- arduino-cli upload --verify ./deployment/micro_speech_4words/micro_speech_4words.ino
+ arduino-cli upload --verify ./deployment/${sketchfolder}/${sketchname}.ino
  echo -e "\n -- DONE!\n"
 }
 

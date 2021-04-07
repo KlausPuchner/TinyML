@@ -2,4 +2,6 @@
 
 ## ---------- Helper Variables ----------
 
-builddate="03-04-2021"
+builddate="07-04-2021"
+sketchfolder="micro_speech_4words"
+sketchname=sketchfolder
