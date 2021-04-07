@@ -53,7 +53,8 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
     // If we hear a command, light up the appropriate LED
     if (found_command[0] == 'a') {
       last_command_time = current_time;
-      digitalWrite(LEDG, LOW);  
+      digitalWrite(LEDG, LOW);
+      delay(1000)
       digitalWrite(LEDG, HIGH);// Green for activate
     }
 
