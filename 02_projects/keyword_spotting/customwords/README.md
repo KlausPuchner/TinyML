@@ -59,14 +59,14 @@ Open the **arduino_command_responder.cpp** file, **locate** and ...
       digitalWrite(LEDG, LOW);
       delay(1000)
       digitalWrite(LEDG, HIGH);// Green for activate
-    }
+    }`
 
-    if (found_command[0] == 'd') {
+    `if (found_command[0] == 'd') {
       last_command_time = current_time;
       digitalWrite(LEDG, HIGH);  // No green LED for deactivate
-    }
+    }`
 
-    if (found_command[0] == 's') {
+    `if (found_command[0] == 's') {
       last_command_time = current_time;
       digitalWrite(LEDR, LOW);
       digitalWrite(LEDG, LOW);
