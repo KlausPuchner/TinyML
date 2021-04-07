@@ -53,9 +53,18 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
     // If we hear a command, light up the appropriate LED
     if (found_command[0] == 'a') {
       last_command_time = current_time;
-      digitalWrite(LEDG, LOW);
-      delay(1000)
-      digitalWrite(LEDG, HIGH);// Green for activate
+      digitalWrite(LEDG, LOW);// Green for activate
+
+      if (found_command[0] == 's') {
+        last_command_time = current_time;
+        digitalWrite(LEDR, LOW);
+        digitalWrite(LEDG, LOW);
+        digitalWrite(LEDB, LOW);  // White for snapshot
+        delay(1000);
+        digitalWrite(LEDR, HIGH);
+        digitalWrite(LEDG, HIGH);
+        digitalWrite(LEDB, HIGH);
+      }
     }
 
     if (found_command[0] == 'd') {
@@ -63,16 +72,6 @@ void RespondToCommand(tflite::ErrorReporter* error_reporter,
       digitalWrite(LEDG, HIGH);  // No green LED for deactivate
     }
 
-    if (found_command[0] == 's') {
-      last_command_time = current_time;
-      digitalWrite(LEDR, LOW);
-      digitalWrite(LEDG, LOW);
-      digitalWrite(LEDB, LOW);  // White for snapshot
-      delay(1000);
-      digitalWrite(LEDR, HIGH);
-      digitalWrite(LEDG, HIGH);
-      digitalWrite(LEDB, HIGH);
-    }
   }
 
   // If last_command_time is non-zero but was >3 seconds ago, zero it
