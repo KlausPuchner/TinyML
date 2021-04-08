@@ -2,6 +2,6 @@
 
 ## ---------- Helper Variables ----------
 
-builddate="07-04-2021"
-sketchfolder="magic_wand"
+builddate="08-04-2021"
+sketchfolder="magic_wand_custom"
 sketchname=sketchfolder
