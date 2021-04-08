@@ -46,6 +46,7 @@ Two things need to be done here:
 In **magic_wand_custom.ino**, go to line 58/59 and make sure to update them according to the number and kind of gestures in the dataset (in our example we use 0 - 9 ascending):
 
 `constexpr int label_count = 10;`
+
 `const char* labels[label_count] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};`
 
 Save changes.
